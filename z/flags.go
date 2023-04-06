@@ -109,7 +109,7 @@ type SuperFlag struct {
 func NewSuperFlag(flag string) *SuperFlag {
 	sf, err := newSuperFlagImpl(flag)
 	if err != nil {
-		gslog.Fatal(err)
+		gslog.Fatal("NewSuperFlag", "flag", flag, "error", err)
 	}
 	return sf
 }
@@ -136,7 +136,7 @@ func (sf *SuperFlag) String() string {
 func (sf *SuperFlag) MergeAndCheckDefault(flag string) *SuperFlag {
 	sf, err := sf.mergeAndCheckDefaultImpl(flag)
 	if err != nil {
-		gslog.Fatal(err)
+		gslog.Fatal("MergeAndCheckDefault", "flag", flag, "error", err)
 	}
 	return sf
 }
